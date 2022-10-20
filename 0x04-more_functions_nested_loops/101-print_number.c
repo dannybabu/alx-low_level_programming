@@ -2,7 +2,7 @@
 /**
  * print_number - prints an integer
  * @n:.input integer parameter
- * owned by zachee
+ * owned by Daniel
  */
 void print_number(int n)
 {
@@ -12,6 +12,7 @@ void print_number(int n)
 	{
 		putchar(45);
 		i = -i;
+
 	}
 	if (i / 10)
 	{
