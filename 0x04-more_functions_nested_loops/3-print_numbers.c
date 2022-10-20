@@ -3,14 +3,14 @@
  * print_numbers -  checks for checks for a digit (0 through 9).
  * Return: Always 0.
  */
+
 void print_numbers(void)
 {
-	char a;
+	char c;
 
-	for (a = '0'; a < '10'; a++)
+	for (c = '0'; c <= '9'; c++)
 	{
-		_putchar(a);
+		_putchar(c);
 	}
-
 	_putchar('\n');
 }
