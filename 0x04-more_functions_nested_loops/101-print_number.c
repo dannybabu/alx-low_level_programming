@@ -4,13 +4,15 @@
  * @n:.input integer parameter
  * owned by Daniel
  */
+
+
 void print_number(int n)
 {
 	unsigned int i = n;
 
 	if (n < 0)
 	{
-		putchar(45);
+		_putchar(45);
 		i = -i;
 
 	}
@@ -18,5 +20,5 @@ void print_number(int n)
 	{
 		print_number(i / 10);
 	}
-	putchar(i % 10 + '0');
+	_putchar(i % 10 + '0');
 }
