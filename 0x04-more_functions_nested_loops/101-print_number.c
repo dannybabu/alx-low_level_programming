@@ -1,10 +1,10 @@
 #include "main.h"
+
 /**
  * print_number - prints an integer
  * @n:.input integer parameter
  * owned by Daniel
  */
-
 
 void print_number(int n)
 {
