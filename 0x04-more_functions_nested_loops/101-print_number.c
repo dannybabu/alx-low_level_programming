@@ -2,23 +2,45 @@
 
 /**
  * print_number - prints an integer
- * @n:.input integer parameter
- * owned by Daniel
+ * @n: n -Variable
+ * Return: Always 0.
  */
 
 void print_number(int n)
 {
-unsigned int i = n;
+unsigned int z;
+int m, b;
 
+b = 10;
+
+if (n < 10 && n >= 0)
+{
+putchar(n + '0');
+}
+else if (n > -10 && n < 0)
+{
+n = n - 2 * n;
+putchar('-');
+putchar(n + '0');
+}
+else
+{
 if (n < 0)
 {
-putchar(45);
-i = -i;
-
+n = n * -1;
+putchar('-');
 }
-if (i / 10)
+z = n;
+while (z / b > 9)
 {
-print_number(i / 10);
+b = b * 10;
 }
-putchar(i % 10 + '0');
+while (b > 0)
+{
+m = z / b;
+z = z % b;
+putchar(m + '0');
+b = b / 10;
+}
+}
 }
