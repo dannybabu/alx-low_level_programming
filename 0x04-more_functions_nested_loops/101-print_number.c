@@ -1,46 +1,22 @@
 #include "main.h"
-
 /**
  * print_number - prints an integer
- * @n: n -Variable
- * Return: Always 0.
+ * @n:.input integer parameter
  */
-
 void print_number(int n)
 {
-unsigned int z;
-int m, b;
+	unsigned int i = n;
 
-b = 10;
+	if (n < 0)
+	{
+		_putchar(45);
 
-if (n < 10 && n >= 0)
-{
-putchar(n + '0');
-}
-else if (n > -10 && n < 0)
-{
-n = n - 2 * n;
-putchar('-');
-putchar(n + '0');
-}
-else
-{
-if (n < 0)
-{
-n = n * -1;
-putchar('-');
-}
-z = n;
-while (z / b > 9)
-{
-b = b * 10;
-}
-while (b > 0)
-{
-m = z / b;
-z = z % b;
-putchar(m + '0');
-b = b / 10;
-}
-}
+		i = -i;
+
+	}
+	if (i / 10)
+	{
+		print_number(i / 10);
+	}
+	_putchar(i % 10 + '0');
 }
