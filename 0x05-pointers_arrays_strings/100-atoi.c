@@ -13,7 +13,7 @@ int _atoi(char *s)
 	minus = -1;
 	while (s[i] != '\0')
 	{
-		if (s[i] == '_')
+		if (s[i] == '-')
 			minus *= -1;
 		if (s[i] >= '0' && s[i] <= '9')
 		{
