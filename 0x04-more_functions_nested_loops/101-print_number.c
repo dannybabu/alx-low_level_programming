@@ -2,7 +2,10 @@
 /**
  * print_number - prints an integer
  * @n:.input integer parameter
+ * owned by daniel
  */
+
+
 void print_number(int n)
 {
 	unsigned int i = n;
@@ -10,7 +13,6 @@ void print_number(int n)
 	if (n < 0)
 	{
 		putchar(45);
-
 		i = -i;
 
 	}
