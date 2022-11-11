@@ -1,31 +1,30 @@
-#include"main.h"
 #include <stdlib.h>
+#include "main.h"
 /**
- * array_range - Makes an array of integers of range `min` to `max`
- * @min: Starting integer for range
- * @max: Last integer in range
- * Return: Pointer to first element of new array
+ * _calloc - allocates memory of an array using malloc.
+ * @nmemb: number of elements in array.
+ * @size: size of elements of array.
+ * Return: NULL is size or nmemb == 0.
+ * NULL if malloc fails.
+ * Pointer to memory allocated if successful.
  */
-int *array_range(int min, int max)
+void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	int diff, i;
-	int *arr;
+	void *p;
+	unsigned int i;
 
-	if (min > max)
+	if (nmemb == 0 || size == 0)
 		return (NULL);
-
-	diff = max - min;
-
-	arr = malloc(sizeof(int) * (diff + 1));
-
-	if (arr == NULL)
-		return (NULL);
-
-	for (i = 0; i < diff + 1; i++)
+	p = malloc(nmemb * size);
+	if (p == NULL)
 	{
-		arr[i] = (min + i);
+		return (NULL);
 	}
 
-	return (arr);
-}
+	for (i = 0; i < (nmemb * size); i++)
+	{
+		*((char *)(p) + i) = 0;
+	}
 
+	return (p);
+}
