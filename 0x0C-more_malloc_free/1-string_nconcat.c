@@ -1,55 +1,54 @@
-#include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdlib.h>
+#include "main.h"
 /**
- * string_nconcat - Makes a new string containing `s1` and the first `n` bytes
- *                  of `s2`
- * @s1: Pointer to the first character of the first string
- * @s2: Pointer to the first character of the second string
- * @n: Number of bytes to copy from `s2`
- * Return: Pointer to the first character in the concatonated string
+ * _strlen - calculate and return string length
+ * @string: string
+ * Return: string length
  */
-char *string_nconcat(char *s1, char *s2, unsigned int n)
+int _strlen(char *string)
 {
-	char *cat;
-	unsigned int i, count = 0;
-	unsigned int len;
+	int i;
 
-	if (s1 == NULL)
-		s1 = "";
-	if (s2 == NULL)
-		s2 = "";
-	len = strlen(s2);
-	if (strlen(s2) > n)
-		len = n;
-
-	cat = malloc(sizeof(char) * (strlen(s1) + len + 1));
-
-	if (cat == NULL)
-		return (NULL);
-
-	for (; *s1; s1++, count++)
-		cat[count] = *s1;
-
-	for (i = 0; *s2 && i < n; i++, s2++, count++)
-		cat[count] = *s2;
-
-	cat[count] = '\0';
-
-	return (cat);
+	for (i = 0; string[i] != '\0'; i++)
+		;
+	return (i);
 }
 
 /**
- * _strlen - returns the length of a string
- * @s: pointer to first character of string
- * Return: length of string
+ * string_nconcat - concatenate s1 and n bytes of s2; return ptr to string
+ * @s1: string 1
+ * @s2: string 2
+ * @n: n bytes to concat from string 2
+ * Return: pointer to concatenated string
  */
-unsigned int _strlen(char *s)
+char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	int i = 0;
+	char *ptr;
+	int num, len, i, j;
 
-	for (; *s != '\0'; s++)
-		i++;
+	num = n;
 
-	return (i);
+	if (s1 == NULL) /* account for NULL strings */
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
+	if (num < 0) /* account for negative n bytes */
+		return (NULL);
+	if (num >= _strlen(s2)) /* account for n too big */
+		num = _strlen(s2);
+
+	len = _strlen(s1) + num + 1; /* +1 to account for null pointer */
+
+	ptr = malloc(sizeof(*ptr) * len); /* malloc and check for error */
+	if (ptr == NULL)
+		return (NULL);
+
+	for (i = 0; s1[i] != '\0'; i++) /* concat */
+		ptr[i] = s1[i];
+	for (j = 0; j < num; j++)
+		ptr[i + j] = s2[j];
+	ptr[i + j] = '\0';
+
+	return (ptr);
 }
