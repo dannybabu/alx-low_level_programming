@@ -30,7 +30,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		}
 		break;
 	}
-	printif("%s", str);
+	printf("%s", str);
 	if (n == i + 1)
 	{
 		printf("%s", separator);
