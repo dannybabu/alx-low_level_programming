@@ -3,39 +3,28 @@
 #include <stdarg.h>
 
 /**
- * print_strings - prints strings.
+ * print_strings - prints number using a separator
  * @n: number of arguments
  * @separator: character separator of numbers
  * Return: Always 0.
  */
 void print_strings(const char *separator, const unsigned int n, ...)
 {
-	va_list string;
+	va_list valist;
 	unsigned int i;
-	char *str;
+	char *p;
 
-	if (separator == NULL)
-	{
-		separator = "";
-	}
+	va_start(valist, n);
 
-	va_start(string, n);
 
 	for (i = 0; i < n; i++)
 	{
-		str = va_arg(string, char *);
-		if (str == NULL)
-		{
-		printf("(nil)");
-		}
-		break;
-	}
-	printf("%s", str);
-	if (n == i + 1)
-	{
-		printf("%s", separator);
+		if (separator != NULL && i != 0)
+			printf("%s", separator);
+		p = va_arg(valist, char *);
+		printf("%s", (p == NULL) ? "(nil)" : p);
 	}
 	printf("\n");
-	va_end(string);
+	va_end(valist);
 }
 
